@@ -24,29 +24,29 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
-	webappv1 "github.com/miladhzzzzz/persys-operator-k8s/api/v1"
+	cloudapiv1alpha1 "persys.io/cloud-init/api/v1alpha1"
 )
 
-// PersysCRDReconciler reconciles a PersysCRD object
-type PersysCRDReconciler struct {
+// PersysCloudReconciler reconciles a PersysCloud object
+type PersysCloudReconciler struct {
 	client.Client
 	Scheme *runtime.Scheme
 }
 
-//+kubebuilder:rbac:groups=webapp.k8s.persys.io,resources=persyscrds,verbs=get;list;watch;create;update;patch;delete
-//+kubebuilder:rbac:groups=webapp.k8s.persys.io,resources=persyscrds/status,verbs=get;update;patch
-//+kubebuilder:rbac:groups=webapp.k8s.persys.io,resources=persyscrds/finalizers,verbs=update
+//+kubebuilder:rbac:groups=cloud-api.persys.io,resources=persysclouds,verbs=get;list;watch;create;update;patch;delete
+//+kubebuilder:rbac:groups=cloud-api.persys.io,resources=persysclouds/status,verbs=get;update;patch
+//+kubebuilder:rbac:groups=cloud-api.persys.io,resources=persysclouds/finalizers,verbs=update
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
 // move the current state of the cluster closer to the desired state.
 // TODO(user): Modify the Reconcile function to compare the state specified by
-// the PersysCRD object against the actual cluster state, and then
+// the PersysCloud object against the actual cluster state, and then
 // perform operations to make the cluster state reflect the state specified by
 // the user.
 //
 // For more details, check Reconcile and its Result here:
 // - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.14.4/pkg/reconcile
-func (r *PersysCRDReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
+func (r *PersysCloudReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
 	_ = log.FromContext(ctx)
 
 	// TODO(user): your logic here
@@ -55,8 +55,8 @@ func (r *PersysCRDReconciler) Reconcile(ctx context.Context, req ctrl.Request) (
 }
 
 // SetupWithManager sets up the controller with the Manager.
-func (r *PersysCRDReconciler) SetupWithManager(mgr ctrl.Manager) error {
+func (r *PersysCloudReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
-		For(&webappv1.PersysCRD{}).
+		For(&cloudapiv1alpha1.PersysCloud{}).
 		Complete(r)
 }

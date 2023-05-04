@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package v1
+package v1alpha1
 
 import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -23,17 +23,17 @@ import (
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 
-// PersysCRDSpec defines the desired state of PersysCRD
-type PersysCRDSpec struct {
+// PersysCloudSpec defines the desired state of PersysCloud
+type PersysCloudSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Foo is an example field of PersysCRD. Edit persyscrd_types.go to remove/update
+	// Foo is an example field of PersysCloud. Edit persyscloud_types.go to remove/update
 	Foo string `json:"foo,omitempty"`
 }
 
-// PersysCRDStatus defines the observed state of PersysCRD
-type PersysCRDStatus struct {
+// PersysCloudStatus defines the observed state of PersysCloud
+type PersysCloudStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 }
@@ -41,24 +41,24 @@ type PersysCRDStatus struct {
 //+kubebuilder:object:root=true
 //+kubebuilder:subresource:status
 
-// PersysCRD is the Schema for the persyscrds API
-type PersysCRD struct {
+// PersysCloud is the Schema for the persysclouds API
+type PersysCloud struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	Spec   PersysCRDSpec   `json:"spec,omitempty"`
-	Status PersysCRDStatus `json:"status,omitempty"`
+	Spec   PersysCloudSpec   `json:"spec,omitempty"`
+	Status PersysCloudStatus `json:"status,omitempty"`
 }
 
 //+kubebuilder:object:root=true
 
-// PersysCRDList contains a list of PersysCRD
-type PersysCRDList struct {
+// PersysCloudList contains a list of PersysCloud
+type PersysCloudList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []PersysCRD `json:"items"`
+	Items           []PersysCloud `json:"items"`
 }
 
 func init() {
-	SchemeBuilder.Register(&PersysCRD{}, &PersysCRDList{})
+	SchemeBuilder.Register(&PersysCloud{}, &PersysCloudList{})
 }

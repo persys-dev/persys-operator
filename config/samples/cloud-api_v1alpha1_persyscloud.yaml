@@ -1,12 +1,12 @@
-apiVersion: webapp.k8s.persys.io/v1
-kind: PersysCRD
+apiVersion: cloud-api.persys.io/v1alpha1
+kind: PersysCloud
 metadata:
   labels:
-    app.kubernetes.io/name: persyscrd
-    app.kubernetes.io/instance: persyscrd-sample
+    app.kubernetes.io/name: persyscloud
+    app.kubernetes.io/instance: persyscloud-sample
     app.kubernetes.io/part-of: persys-operator-k8s
     app.kubernetes.io/managed-by: kustomize
     app.kubernetes.io/created-by: persys-operator-k8s
-  name: persyscrd-sample
+  name: persyscloud-sample
 spec:
   # TODO(user): Add fields here

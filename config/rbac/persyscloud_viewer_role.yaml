@@ -1,31 +1,27 @@
-# permissions for end users to edit persyscrds.
+# permissions for end users to view persysclouds.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   labels:
     app.kubernetes.io/name: clusterrole
-    app.kubernetes.io/instance: persyscrd-editor-role
+    app.kubernetes.io/instance: persyscloud-viewer-role
     app.kubernetes.io/component: rbac
     app.kubernetes.io/created-by: persys-operator-k8s
     app.kubernetes.io/part-of: persys-operator-k8s
     app.kubernetes.io/managed-by: kustomize
-  name: persyscrd-editor-role
+  name: persyscloud-viewer-role
 rules:
 - apiGroups:
-  - webapp.k8s.persys.io
+  - cloud-api.persys.io
   resources:
-  - persyscrds
+  - persysclouds
   verbs:
-  - create
-  - delete
   - get
   - list
-  - patch
-  - update
   - watch
 - apiGroups:
-  - webapp.k8s.persys.io
+  - cloud-api.persys.io
   resources:
-  - persyscrds/status
+  - persysclouds/status
   verbs:
   - get

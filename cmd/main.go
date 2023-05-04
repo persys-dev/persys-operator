@@ -31,8 +31,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/healthz"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	webappv1 "github.com/miladhzzzzz/persys-operator-k8s/api/v1"
-	"github.com/miladhzzzzz/persys-operator-k8s/internal/controller"
+	cloudapiv1alpha1 "persys.io/cloud-init/api/v1alpha1"
+	"persys.io/cloud-init/internal/controller"
 	//+kubebuilder:scaffold:imports
 )
 
@@ -44,7 +44,7 @@ var (
 func init() {
 	utilruntime.Must(clientgoscheme.AddToScheme(scheme))
 
-	utilruntime.Must(webappv1.AddToScheme(scheme))
+	utilruntime.Must(cloudapiv1alpha1.AddToScheme(scheme))
 	//+kubebuilder:scaffold:scheme
 }
 
@@ -71,7 +71,7 @@ func main() {
 		Port:                   9443,
 		HealthProbeBindAddress: probeAddr,
 		LeaderElection:         enableLeaderElection,
-		LeaderElectionID:       "e64c78e6.k8s.persys.io",
+		LeaderElectionID:       "c8fcf238.persys.io",
 		// LeaderElectionReleaseOnCancel defines if the leader should step down voluntarily
 		// when the Manager ends. This requires the binary to immediately end when the
 		// Manager is stopped, otherwise, this setting is unsafe. Setting this significantly
@@ -89,11 +89,11 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err = (&controller.PersysCRDReconciler{
+	if err = (&controller.PersysCloudReconciler{
 		Client: mgr.GetClient(),
 		Scheme: mgr.GetScheme(),
 	}).SetupWithManager(mgr); err != nil {
-		setupLog.Error(err, "unable to create controller", "controller", "PersysCRD")
+		setupLog.Error(err, "unable to create controller", "controller", "PersysCloud")
 		os.Exit(1)
 	}
 	//+kubebuilder:scaffold:builder

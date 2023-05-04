@@ -1,4 +1,4 @@
-module github.com/miladhzzzzz/persys-operator-k8s
+module persys.io/cloud-init
 
 go 1.19
 
