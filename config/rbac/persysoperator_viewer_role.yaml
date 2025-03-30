@@ -1,0 +1,29 @@
+# This rule is not used by the project persys-operator-k8s itself.
+# It is provided to allow the cluster admin to help manage permissions for users.
+#
+# Grants read-only access to prow.persys.io resources.
+# This role is intended for users who need visibility into these resources
+# without permissions to modify them. It is ideal for monitoring purposes and limited-access viewing.
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: persys-operator-k8s
+    app.kubernetes.io/managed-by: kustomize
+  name: persysoperator-viewer-role
+rules:
+- apiGroups:
+  - prow.persys.io
+  resources:
+  - persysoperators
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - prow.persys.io
+  resources:
+  - persysoperators/status
+  verbs:
+  - get

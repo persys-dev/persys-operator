@@ -1,4 +1,4 @@
 ## Append samples of your project ##
 resources:
-- cloud-api_v1alpha1_persyscloud.yaml
-#+kubebuilder:scaffold:manifestskustomizesamples
+- prow_v1alpha1_persysoperator.yaml
+# +kubebuilder:scaffold:manifestskustomizesamples

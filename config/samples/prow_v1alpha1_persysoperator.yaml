@@ -1,0 +1,9 @@
+apiVersion: prow.persys.io/v1alpha1
+kind: PersysOperator
+metadata:
+  labels:
+    app.kubernetes.io/name: persys-operator-k8s
+    app.kubernetes.io/managed-by: kustomize
+  name: persysoperator-sample
+spec:
+  # TODO(user): Add fields here

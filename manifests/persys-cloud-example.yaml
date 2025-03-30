@@ -1,6 +1,0 @@
-apiVersion: cloud-api.persys.io/v1alpha1
-Kind: PersysCloud
-metadata:
-  namespace: persys
-  name: persyscloud-sample
-spec:

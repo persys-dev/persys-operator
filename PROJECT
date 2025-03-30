@@ -6,15 +6,15 @@ domain: persys.io
 layout:
 - go.kubebuilder.io/v4
 projectName: persys-operator-k8s
-repo: persys.io/cloud-init
+repo: github.com/persys-dev/persys-operator
 resources:
 - api:
     crdVersion: v1
     namespaced: true
   controller: true
   domain: persys.io
-  group: cloud-api
-  kind: PersysCloud
-  path: persys.io/cloud-init/api/v1alpha1
+  group: prow
+  kind: PersysOperator
+  path: github.com/persys-dev/persys-operator/api/v1alpha1
   version: v1alpha1
 version: "3"
