@@ -1,0 +1,36 @@
+apiVersion: prow.persys.io/v1alpha1
+kind: PersysWorkload
+metadata:
+  name: nginx-deployment
+  namespace: default
+spec:
+  workloadType: Deployment
+  replicas: 2
+  restartPolicy: Always
+  containers:
+    - name: nginx
+      image: nginx:1.21
+      ports:
+        - containerPort: 80
+      resources:
+        limits:
+          cpu: "200m"
+          memory: "128Mi"
+        requests:
+          cpu: "100m"
+          memory: "64Mi"
+  nodeSelector:
+    kubernetes.io/os: linux
+  # tolerations:
+  #   - key: "example-key"
+  #     operator: "Exists"
+  #     effect: "NoSchedule"
+  # affinity:
+  #   nodeAffinity:
+  #     requiredDuringSchedulingIgnoredDuringExecution:
+  #       nodeSelectorTerms:
+  #         - matchExpressions:
+  #             - key: kubernetes.io/hostname
+  #               operator: In
+  #               values:
+  #                 - worker-node-1

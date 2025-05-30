@@ -1,12 +1,12 @@
 # Adds namespace to all resources.
-namespace: persys-operator-k8s-system
+namespace: persys-workloads
 
 # Value of this field is prepended to the
 # names of all resources, e.g. a deployment named
 # "wordpress" becomes "alices-wordpress".
 # Note that it should also match with the prefix (text before '-') of the namespace
 # field above.
-namePrefix: persys-operator-k8s-
+namePrefix: persys-workload-k8s-
 
 # Labels to add to all resources and selectors.
 #labels:

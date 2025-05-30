@@ -1,4 +1,4 @@
 ## Append samples of your project ##
 resources:
-- prow_v1alpha1_persysoperator.yaml
+- prow_v1alpha1_persysworkload.yaml
 # +kubebuilder:scaffold:manifestskustomizesamples

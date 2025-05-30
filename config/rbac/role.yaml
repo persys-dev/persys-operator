@@ -7,8 +7,26 @@ rules:
 - apiGroups:
   - ""
   resources:
+  - configmaps
+  verbs:
+  - get
+  - list
+  - update
+  - watch
+- apiGroups:
+  - ""
+  resources:
   - pods
   verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apps
+  resources:
+  - deployments
+  - statefulsets
+  verbs:
   - create
   - delete
   - get
@@ -17,9 +35,10 @@ rules:
   - update
   - watch
 - apiGroups:
-  - prow.persys.io
+  - batch
   resources:
-  - persysoperators
+  - cronjobs
+  - jobs
   verbs:
   - create
   - delete
@@ -31,7 +50,19 @@ rules:
 - apiGroups:
   - prow.persys.io
   resources:
-  - persysoperators/status
+  - persysworkloads
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - prow.persys.io
+  resources:
+  - persysworkloads/status
   verbs:
   - get
   - patch
